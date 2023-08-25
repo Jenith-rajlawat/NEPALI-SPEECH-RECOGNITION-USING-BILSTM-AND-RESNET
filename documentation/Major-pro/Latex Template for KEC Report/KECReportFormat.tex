@@ -1,0 +1,237 @@
+%KECReportFormat.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%DO NOT MAKE CHANGES IN THIS FILE
+
+\documentclass[12pt, a4paper]{report}
+\usepackage[left = 1.5in, right = 1in, top = 1in, bottom = 1in]{geometry}%for margin
+\usepackage{amsfonts, amsmath, amssymb} %for mathematical equations
+\usepackage{graphicx} %for images
+\usepackage{times} %font Times New Roman Font
+\usepackage{float} %required if you use H(strictly here) position for floats
+\usepackage[skip = 8pt,tableposition=top, figureposition=bottom]{caption}%adjust spacing of captions and specify where captions are
+\usepackage{hyperref} % for easy Navigation in document, also puts links in TOC, LOF, LOT...
+\usepackage{setspace} %to change line spacing in some portion \singlespacing \onehalfspacing \doublespacing
+\usepackage{acro} %for List of Abbrreviation and Symbol
+\acsetup{first-style = short} % set to display only short form on the command \ac{}
+
+%packages required for complex tables
+\usepackage{bigstrut} 
+\usepackage{multirow}
+
+\renewcommand{\contentsname}{Table of Contents} %Change TOC Heading ... default is "Contents" 
+
+\parindent 0pt	%removes the indent in paragraph
+\setlength{\parskip}{18pt}	%for paragraph spacing
+\renewcommand{\baselinestretch}{1.5}   %Line Spacing = 1.5 line-spaces
+
+%to reduce spacing in sections
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{0pt}{0pt} %left, top, bottom spacings
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+\titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
+\titlespacing*{\paragraph}{0pt}{0pt}{0pt}
+\titlespacing*{\subparagraph}{0pt}{0pt}{0pt}
+
+%adjust fontsizes\ of sections
+\titleformat*{\section}{\fontsize{14pt}{18pt}\bfseries}
+\titleformat*{\subsection}{\fontsize{13pt}{18pt}\bfseries}
+\titleformat*{\subsubsection}{\fontsize{12pt}{18pt}\bfseries}
+\titleformat*{\paragraph}{\fontsize{12pt}{18pt}\bfseries}
+\titleformat*{\subparagraph}{\fontsize{12pt}{18pt}\bfseries}
+
+%to reduce separation between points in list
+\usepackage{enumitem}
+\setlist[enumerate]{nosep} % no separation between items in enumerate
+\setlist[itemize]{nosep} % no separation between items in itemize
+%use \vspace{-18pt} before list to reduce paragraph spacing between list and preceeding paragraph.
+
+%Changes for Chapter Heading Spacing and formats for numbered chapters
+\makeatletter
+\def\@makechapterhead#1{%
+  %\vspace*{50pt}%
+  {  \MakeUppercase{\ifnum \c@secnumdepth >\m@ne
+        \fontsize{16pt}{1}\bfseries \@chapapp \space \thechapter\vspace{5pt}\\
+    \fi
+    \interlinepenalty\@M
+     \bfseries #1}\par\nobreak
+    %\vskip 0pt
+  }}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%to adjust Heading spacings and fonts For unnumbered chapters, TOC, LOF ...
+\makeatletter
+% Redefine the \chapter* header macro to remove vertical space
+\def\@makeschapterhead#1{%
+  %\vspace*{50\p@}% Remove the vertical space
+  {\newpage \parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \center \fontsize{16pt}{1} \bfseries \MakeUppercase{#1}\par\nobreak
+    %\vskip 18\p@ % adjust space after heading 18pt
+  }}
+\makeatother 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% newcommand for generating Cover Page
+\newcommand{\KECcoverpage}
+{
+\begin{titlepage}
+\begin{center}
+\Large{\textbf{KANTIPUR ENGINEERING COLLEGE}}\\
+\large{\textbf{(Affiliated to Tribhuvan University)}}\\
+\large{\textbf{Dhapakhel, Lalitpur}}\\
+\vfill	%vertically fill the space 
+\begin{figure}[h] % h: put logo "here"
+\begin{center}
+\includegraphics[width=25mm, height = 25mm]{images/logo.png}
+\end{center}
+\end{figure}
+
+\large{\textbf{[Subject Code: \subCode]}}\\ %Change This Line
+\large{\textbf{A \MakeUppercase{\project} \MakeUppercase{\doc} ON}}\\ %Change This Line
+\Large{\textbf{\MakeUppercase{\projectTitle}}}\\
+
+\vfill	%vertically fill the space 
+\large{\textbf{Submitted by:}}\\
+\large{\textbf{\submittedBy}}\\
+\vfill	%vertically fill the space 
+\textbf{A \MakeUppercase{\project} SUBMITTED IN PARTIAL FULFILLMENT OF THE REQUIREMENT FOR THE DEGREE OF \MakeUppercase{\degree}}\\
+
+\vfill	%vertically fill the space 
+\large{\textbf{Submitted to:}}\\
+\large{\textbf{\submittedTo}}\\
+\vfill
+\large{\textbf{\defMonth, \defYear}}
+\pagebreak
+\end{center}
+\end{titlepage}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% newcommand for generating Cover Page
+%Title Page
+\newcommand{\KECtitlepage}
+{
+\begin{titlepage}
+\begin{center}
+\Large{\textbf{\MakeUppercase{\projectTitle}}}\\
+
+\vfill	%vertically fill the space 
+
+\large{\textbf{Submitted by:}}\\
+\large{\textbf{\submittedBy}}\\
+
+
+\ifhassupervisor % Displays Supervisor name only if \hassupervisortrue
+	\vfill	%vertically fill the space 
+	\large{\textbf{Supervised by:}}\\
+	\large{\textbf{\supervisor}}\\
+	\large{\textbf{\degSup}}\\
+\fi
+
+\vfill	%vertically fill the space 
+\textbf{A \MakeUppercase{\project} SUBMITTED IN PARTIAL FULFILLMENT OF THE REQUIREMENT FOR THE DEGREE OF \MakeUppercase{\degree}}\\
+
+\vfill	%vertically fill the space 
+\large{\textbf{Submitted to:}}\\
+\large{\textbf{\submittedTo}}\\
+\large{\textbf{Kantipur Engineering College}}\\
+\large{\textbf{Dhapakhel, Lalitpur}}\\
+
+\vfill
+\large{\textbf{\defMonth, \defYear}}
+\thispagestyle{empty}\\ %to remove page number
+\pagebreak
+\end{center}
+\end{titlepage}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%command for copyright page
+\newcommand{\KECcopyright}
+{
+\chapter*{Copyright}%Required only for Final Defense of Major Project
+\addcontentsline{toc}{chapter}{Copyright}
+The author has agreed that the library, Kantipur Engineering Collage, may make this report freely available for inspection. Moreover the author has agreed that permission for extensive copying of this report for scholarly purpose may be granted by the supervisor(s), who supervised the project work recorded herein or, in their absence, by the Head of the Department wherein this project was done. It is understood that due recognition will be given to the author of this report and to the \submittedTo, Kantipur Engineering College in any use of the material of this report. Copying or publication or other use of this report for financial gain without approval of the \submittedTo, Kantipur Engineering College and author’s written permission is prohibited.\par Request for permission to copy or to make any other use of the material in this report in whole or in part should be addressed to:
+
+Head\\
+\submittedTo\\
+Kantipur Engineering College\\
+Dhapakhel, Lalitpur\\
+Nepal
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%command for Approval Letter
+\newcommand{\KECapproval}
+{
+\chapter*{Kantipur Engineering College
+\vskip -10pt}%Required only for Final Defense of Major Project
+\begin{center}
+\fontsize{12.8pt}{1} %size decreaced to adjust department name in single line
+\textbf{
+\MakeUppercase{\submittedTo}\\ %for department name
+}
+\vskip 10pt
+\fontsize{16pt}{1}
+\textbf{APPROVAL LETTER}
+\end{center}
+\vskip -16pt
+\addcontentsline{toc}{chapter}{Approval Letter}%
+The undersigned certify that they have read and recommended to the Institute of Engineering for acceptance, a project report entitled "\projectTitle " submitted by \\
+\submittedBy \\
+in partial fulfillment for the degree of \degree. \par
+{\vspace{25pt}
+..........................................\\
+Supervisor\\
+\supervisor \\
+\degSup\\
+\vspace{25pt}\\
+..........................................\\
+External Examiner\\
+\external\\
+\degExternal\\
+\vspace{25pt}\\
+..........................................\\
+\hod\\
+Head of Department\\
+\submittedTo
+\vspace{10pt}\\
+Date: \defMonth\space\defDay ,\space \defYear
+\singlespacing\par
+} %single spacing for the texts inside {}
+}
+
+%command for list of abbreviations
+\newcommand{\KECloa}
+{
+\chapter*{List of Abbreviations}
+\addcontentsline{toc}{chapter}{List of Abbreviations}
+\vskip -42pt % to reduce space due to invisivle acronym class name
+{
+\singlespacing
+\printacronyms[include-classes=abbr, name= ]
+}
+
+}
+
+%command for list of symbols
+\newcommand{\KEClos}
+{
+\chapter*{List of Symbols}
+\addcontentsline{toc}{chapter}{List of Symbols}
+\vskip -42pt % to reduce space due to invisivle acronym class name{
+{
+\singlespacing
+\printacronyms[include-classes=symbol, name= ]
+}
+}
+
+%command to adjust toc, lof, lot spacing
+\newcommand{\KECadjusttocspacings}
+{
+\parskip 0pt % to remove paragraph spacing in TOC, LOF ...
+\renewcommand{\baselinestretch}{0.1} % to adjust line spacing in toc
+\newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
+\addtocontents{lof}{\protect\noaddvspace} %remove extra vertical space in LOF
+\addtocontents{lot}{\protect\noaddvspace} %remove extra vertical space in LOT
+}

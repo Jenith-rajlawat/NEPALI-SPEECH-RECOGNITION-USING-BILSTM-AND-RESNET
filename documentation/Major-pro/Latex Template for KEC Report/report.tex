@@ -1,0 +1,446 @@
+\include{KECReportFormat} %includes the file KecReportFormat.tex that include all necessary formattings
+%\usepackage[first-style=long]{acro}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Define Macros for Details of your Project
+\newcommand{\project}{Major Project } %Specify "Major Project" or "Minor Project"
+\newcommand{\projectTitle}{NEPALI VOICE ASSISTANT} %specify "Title" of Your Project
+\newcommand{\doc}{Proposal} % specify the document you are preparing eg. "Proposal", "Mid-Term Report" or "Final Report"32
+% Note that You have to sibmit "Final Report" for Pre-final defense as well.
+\newcommand{\subCode}{CT654} %specify Subject of Your Project
+\newcommand{\degree}{Bachelor in Computer Engineering} %specify your degree
+\newcommand{\submittedBy}%Specify Names and Roll/Symbol Numbers of the Project Group Members
+{
+%Edit Member Names and Roll/Symbol No. and adjust width (\makebox[width]) if necessary 
+\makebox[7cm]{Ankit Kafle  \hfill [KAN076BCT012]}\\
+\makebox[7cm]{Dikshyant Giri  \hfill [KAN076BCT026]}\\
+\makebox[7cm]{Jenith Rajlawat  \hfill [KAN076BCT034]}\\
+\makebox[7cm]{Nawaraj Shah  \hfill [KAN076BCT044]}
+%\makebox[9cm]{Member Name \hfill [Roll/Symbol No.]}\\
+} % Note that You must write your "Symbol Numbers"(Exam Roll Numbers) for Final Defenses
+
+\newcommand{\submittedTo}{Department of Computer and Electronics Engineering} %specify your department
+\newcommand{\hod}{Er. Rabindra Khati} %specify Head ot the department
+\newcommand{\defYear}{2023} %Defense Year
+\newcommand{\defMonth}{June} %Defense Month- January, February, ...
+\newcommand{\defDay}{1} %specify Defense Day- 1, 2, ...
+
+\newif\ifhassupervisor
+\hassupervisorfalse % to display supervisor name use command- \hassupervisortrue
+ 
+\newcommand{\supervisor}{Supervisor's Name} % Specify Name of Supervisor for Major Project
+\newcommand{\degSup}{Supervisor's Designation\\Second Line of Designation (if required)} %Specify Designation of Supervisor for Major Project, use multiple lines (\\) if necessary
+\newcommand{\external}{External's Name} %Specify Name of External for Major Project (Required for Black Book)
+\newcommand{\degExternal}{External's Designation\\Second Line of Designation (if required)} %Specify Name of External for Major Project (Required for Black Book) , use multiple lines (\\) if necessary
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Define Abberviations and Symbols
+% NOTE that Only those Abberviations and Symbols that are included in document(using command \ac{}) will be displayed in the List of Abberviations and Symbols.
+
+%class 'abbr': for List of Abbreviations
+\DeclareAcronym{OCR}{
+    short = OCR,
+    long = Optical Character Recognition,
+    tag = abbr
+}
+\DeclareAcronym{LPR}{
+    short = LPR,
+    long = License Plate Recognition,
+    tag = abbr
+}
+\DeclareAcronym{KNN}{ 
+  short = KNN ,
+  long  = K-Nearest Neighbor ,
+  tag = abbr
+}% declares acronym named "UN". Use \ac{UN} for short and \acl{UN} for long form. 
+
+\DeclareAcronym{TTS}{
+  short = TTS ,
+  long  = Text To Speech ,
+  tag = abbr
+}
+\DeclareAcronym{CNN}{
+  short = CNN ,
+  long  = Convolutional Neural Network ,
+  tag = abbr
+}
+\DeclareAcronym{YOLO}{
+    short=YOLO,
+    long = You Only Look Once,
+    tag= abbr,
+}
+\DeclareAcronym{LP}{
+    short = LP,
+    long = License Plate,
+   	tag = abbr,
+    }
+\DeclareAcronym{GPU}{
+    short = GPU,
+    long = Graphics Processing Unit,
+    tag = abbr
+}
+\DeclareAcronym{ANPR}{
+    short = ANPR,
+    long = Automatic Number Plate Recognition,
+    tag = abbr
+}
+\DeclareAcronym{API}{
+    short = API,
+    long = Application Programming Interface,
+    tag = abbr
+}
+\DeclareAcronym{BERT}{
+    short = BERT,
+    long = Bidirectional Encoder Representations from Transformers,
+    tag = abbr
+}
+\DeclareAcronym{IAST}{
+    short = IAST,
+    long =  International Alphabet of Sanskrit Transliteration ,
+    tag = abbr
+}
+\DeclareAcronym{UML}{
+    short = UML,
+    long =  Unified Modelling Language ,
+    tag = abbr
+}
+\DeclareAcronym{ITRANS}{
+    short = ITRANS,
+    long = Indian Language Transliteration,
+    tag = abbr
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% class `symbol': for List of Symbols
+\DeclareAcronym{transparencyFactor}{
+  short = \ensuremath{\alpha} ,
+  long  = Transparency Factor ,
+  sort  = Transparency Factor , % string to compare for sorting symbols... default string is the acronym name -"transparencyFactor"
+  tag = symbol
+}% declares acronym named "transparencyFactor". Use \ac{UN} for short and \acl{UN} for long form.
+
+\DeclareAcronym{areaOfTriangle}{
+  short = \ensuremath{a} , % use \ensuremath{a} instead of $a$
+  long  = Area of Triangle ,
+  sort  = Area of Triangle , % string to compare for sorting symbols
+  tag = symbol
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%The Document
+\begin{document}
+
+%\KECcoverpage % command defined in KECReportFormat
+%\KECtitlepage % command defined in KECReportFormat
+
+\pagenumbering{roman} % starts pagenumberins in Roman numerals i, ii, ...
+
+
+
+\chapter*{Abstract} % The summary of your report
+\addcontentsline{toc}{chapter}{Abstract}%to include this chapter in TOC 
+In a real world scenario, such as a college campus, the information in the form of notice, hand-written manual, and verbal message, is being spread among the students. Today it is of the essence to not only use the predictable forms of statements, but also new forms such as cell phone technology and websites for faster and easier communication among the students. Viewing the results, notices immediately after the publication is a challenge for many students. due to which it consumes student’s time and resources. To overcome this, a website will be designed and developed that allows the students of Kantipur Engineering College to login with a unique ID that allows them to view results, notices and send out notification regarding if the registered students have passed the exam or not. We use the concept of Optical Character Recognition(OCR) to scan the symbol number of the students and check their result status and send the user result status directly to their emails. For extracting the notices from Institute of Engineering (IOE), we use the algorithm of Web Scraping to fetch the important notices that are useful for the students
+
+\par
+\textbf{\textit{Keywords$-$}} Optical Character Recognition, Web Scraping
+
+
+\par
+%to display members name under Acknowledgement
+%\begin{flushright}
+%\vskip -20pt
+%\setstretch{1.2}
+%\submittedBy
+%\end{flushright}
+
+%to adjust spacings for TOC, LOF, LOT
+{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TOC, LOF and LOT
+\KECadjusttocspacings % defined in KECReportFormat.tex to adjust spacings
+\makeatletter
+% to add vskip of 18 point which is reduced when parskip is set to 0 in \LECadjustspacings
+\def\@makeschapterhead#1{%
+  %\vspace*{50\p@}% Remove the vertical space
+  {\newpage \parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \center \fontsize{16pt}{1} \bfseries \MakeUppercase{#1}\par\nobreak
+    \vskip 18\p@ % adjust space after heading 18pt
+  }}
+\makeatother 
+
+\tableofcontents % prints table of contents
+\listoffigures % prints list of figures
+
+
+%\addcontentsline{toc}{chapter}{List of figures}
+%\addcontentsline{toc}{chapter}{List of abbreviations}
+\chapter*{List of Abbreviations}
+	API: Application Programming Interface\\
+	ANPR: Automatic License Plate Recognition\\
+	GPU: Graphical Processing Unit\\
+	KNN: K-Nearest Neighbor\\
+	LPR: License Plate Recognition\\
+	OCR: Optical Character Recognition \\
+	TTS: Text To Speech\\
+	UML: Unified Modeling Language\\
+	YOLO: You Only Look Once\\
+	
+	
+	
+	
+%\listoftables % prints list of table
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%comment this chapter if you don't have List of Abbreviations
+%\KECloa % defined in KECReportFormat
+
+%comment this chapter if you don't have List of Symbols
+%\KEClos % defined in KECReportFormat
+
+\newpage
+\pagenumbering{arabic} % starts pagenumbering in arabic numerals
+
+\chapter{Introduction}
+\section{Background}\label{sec:bkgrnd}%label your section if you require to refer them somewhere else in your document.
+ With the advancement in time and technology, there is a need for faster dissemination of information. The increasing advantages of automated systems now are at their highest position thus many manual processes are automated. Since the automated system is demanded now-a-days, educational infrastructures like colleges needed their manual system to function on Mobile Computing Systems [1]. Today's world is the world of information and technology. Small and big tasks, meetings can be attended through different mobile website. Viewing a website frequently for notices is a hectic thing to do. Similarly verifying the results immediately after the publishment is also quite difficult as the result may come anytime and the particular user can be unaware about it.
+So creating a user-friendly website that provides the user to view the important notices of IOE and providing notification every time a notice has been published is an ideal thing to do. The main goal of this project is helping the student to view the notices from IOE. Not only viewing the notices but also helping the students to view their result status immediately after the publishment is the main aim of the project. Not limited to a single stream, our website facilitates on different streams and every student of every field can gain access to our website which provides different facilities.
+
+
+  
+\section{Problem Statement}
+In today's context, time is a key factor in everyone’s life. This statement is true for everyone including students. For a delicate topic like viewing exam results. The process should be quick as students are worried about their results. These processes are very time consuming and tedious. Most of the important notices are missed by the students because there is a lack of a proper notification system. So to solve these issues we have decided to develop the website in order to help the students to view their result status and be updated with the latest notices.
+
+\section{Objectives}
+\begin{enumerate}
+    \item 	To implement easy result viewing for all the faculties
+
+
+    \item To send the result status automatically via email to users after publishment.
+    \item To provide an effective notice display system.
+\end{enumerate}
+
+\section{Area of Application}
+ The system being designed is economical with respect to the students’ point of view. The goal is to extract useful information from unstructured data using the concept of information retrieval, ﬁltering and secure random algorithms. Our basic approach attempts to develop a website which can be used to make this process easier, secure and less error prone. This project provides a platform to extract real time data from IOE websites. It can be used as a tool to see the result status of the students according to their semester result.
+
+
+\section{Features}
+\begin{enumerate}
+	\item Automatic number plate recognition.
+	\item Time calculation.
+	\item Bill generation.
+\end{enumerate}
+\section{Feasibility Study}
+Before implementation of project design, the feasibility analysis of the project must be done to move any further. The feasibility analysis of the project gives an idea on how the project with perform and it's impact in the real world scenario. So, it is of utmost importance.
+\subsection{Economic Feasibility}
+As a result of the emergence of multiple tools, libraries, and frameworks, our system
+is economically viable. This project is extremely cost-effective since all the software
+needed to create it is free and available online. Building a truly passive system which
+is profitable only requires time and effort. There is no significant cost associated with
+this project. In this way, the project seems successful from a financial perspective.
+\subsection{Technical Feasibility}
+  There are numerous Internet resources available for download of the software required
+for project implementation. As the required software is simply downloadable, the
+project is technically feasible. Several online sources have provided us with the
+knowledge needed for our project including online sources and classes. This project requires
+no licensing fees, so all the libraries and data are available online for free. It is
+technically feasible with the right knowledge and the right tools.
+\subsection{Operational Feasibility}
+The project is operationally feasible because the final product of project will be a system that can be executed easily and that improves the ease of the parking space owners to manage the parking system.
+\subsection{Schedule Feasibility}
+The workload of the project is divided amongst the project members. The scheduling is done according to the incremental model.So, the project fulfills the schedule feasibility requirements.
+\begin{figure}[h!]
+    %\includegraphics[scale=0.5]{images/ganttOCR.png}
+    \caption{Gantt Chart}
+    \label{fig:my_label}
+\end{figure}
+\section{System Requirements}
+\subsection{Hardware Requirement}
+\begin{itemize}
+    \item 4 GB ram or more
+    \item 1280 x 800 minimum screen resolution
+    
+\end{itemize}
+
+\subsection{Software Requirement(Minimum)}
+\begin{itemize}
+    \item Python
+    \item Pycharm
+    \item SQlite
+\end{itemize}
+
+
+
+
+
+\chapter{Literature Review}
+\section{Related Projects}
+Various applications and systems are present that utilize optical character recognition and perform various functions like printing the detected text or converting the text to speech via natural language processing. Also, there are some applications that perform object detection to detect various objects present around.
+	\begin{itemize}
+		\item Mobile LPR : Mobile \ac{LPR} is an application that scans and tracks any car license plate  using the mobile phone camera. It provides instant data at the moment any license plate is seen by the phone. It monitors any activity with simple database searches that reveal full scan history with location of any vehicle that drives past the camera on the phone.
+			\item Microsoft Lens : Images can be converted into Word, Powerpoint, PDF, or Excel files and saved to OneDrive, OneNote, or a local device using Microsoft Lens (formerly known as Microsoft Office Lens). It can be used to crop, improve, and edit paperwork, receipts, handwritten notes, whiteboards, and even Gallery pictures.
+			\item Text Scanner :This OCR app recognizes text from an image with 98-100 percentage accuracy and can provide translations in nearly 100 languages. It allows users to crop the image before OCR, as well as perform multi-image scans. All scans are organized inside of a folder and can be easily shared. 
+			\item Adobe Scan :With the use of its sophisticated image technology, scanned content can be automatically sharpened, boundary detection, and text recognized. Additionally, it can enhance scans or even images from a camera gallery. The completed scan can be saved to  Adobe Document Cloud account for later access and sharing.
+			\item Pen to Print : Its OCR technology, which is designed to scan, analyze, and convert handwritten documents into digital text, is regarded as the "first handwriting to text OCR program." This content may then be modified, searched, and saved on a cloud service or a local device.
+			\item Text Fairy : It is accessible on Android. Text Fairy delivers text to speech (\ac{TTS}), which reads the words out, and can recognize printed text from more than 110 different languages. It can read complicated documents like those with several text columns and can operate offline to preserve privacy.
+\end{itemize}
+\section{Related research}
+\big[1\big]
+The research paper talks about license plate detection for vehicles that have riders that do not wear helmets.The main objective of the study was to develop a real time application for the detection of LP for non-helmeted motorcyclists using single convolution networks. Also along with it the centroid tracking method was used inorder to prevent any kinds of false positives.
+the research papers talk about the related works and propose a \ac{YOLO} algorithm in order to perform the operations specified for the system.\ac{YOLO}v2 was proposed for use which had 19 convolution layers(The convolutional layer is the core building block of a \ac{CNN}, and it is where the majority of computation occurs.) and 5 max pooling layers(The purpose of the pooling layers is to reduce the dimensions of the hidden layer by combining the outputs of neuron clusters at the previous layer into a single neuron in the next layer).The image captured was divided into S*S grid cells . The grid cell contained the center of the objects responsible for predicting the bounding box coordinates. The presence of an object in the grid cell was given by the confidence score c.The system took in a video frame as the input and produced the output with the \ac{LP} of the non helmeted motorcyclists.
+The model before being trained had to have the data annotation and it was done manually with the bounding box information for three classes(person ,helmet and plate).The coordinates after being extracted were normalized between 0 and 1 to fit into YOLO format.
+The purpose of the pooling layers is to reduce the dimensions of the hidden layer by combining the outputs of neuron clusters at the previous layer into a single neuron in the next layer.
+he datasets were separated into 80 \%–20\%, where 80\% was treated as the train set and
+20\% as the test set. The Darknet-19 framework, which defines the YOLOv2 network, was used to train the model in
+the Google Collaboratory(Google collaboratory is an online \ac{GPU}).The program for the system was written in python with open cv library.For the training purpose,1365 datasets were annotated with  with the bounding box information including the class labels for three classes.Twenty two bikers(85 with helmet and 137 without helmet) were selected. Out of 137 non helmeted riders,133 were detected.
+\\
+\\
+\big[2\big]There is not much information available on the ANPR for Pakistani number plates as there are no proper datasets and no proper heterogenous images available.Addressing the issue, the following research was done and a framework was proposed using the YOLO algorithm for object detection and applied various techniques to recognize the plates using OCR(optical character recognition).The proposed \ac{ANPR} was developed inorder to provide ease to the researchers developing ANPR for countries having challenging vehicle number plate formats and styles.The ANPR system reads the image, preprocesses it, and recognizes the vehicle number plate characters independent of human involvement.  
+The process was proposed to be executed in five steps :number plate image capture, plate extraction, image preprocessing,character recognition, and number plate label management.
+First the images were to be transformed into a numerical data for further manipulation then the number plate was localized. For the identification of number plates , a deep neural network based algorithm YOLO was used and trained to localize the number plate region.The image was then to be preprocessed with an objective to subdue the undesirable deformation or amplifying the features for further process.The methods of preprocessing involved gray scaling,binarization, thresholding, and histogram equalization, etc.The proposed system used OCR for the character recognition. For the number plate management, the number plates were stored in a file to keep records. In the implementation phase, the dataset was manually collected by capturing 1000 images of various number plates.For training the darknet object detection model 900 images were classified as training and 100 images as validation images.As YOLO model exhibits greater precision, it was used for the implementation of the model.The OCR was done using pytesseract which is an open source \ac{API} used by optical character recognition engine with the ability to identify and recognize more than 100 languages.
+First, the image was grayscaled to remove all the color information and giving a better result then bilateral filtering was done for smoothing the image and the intensities were adjusted to improve the contrast of the images and enhance the edges of each object region of an image. The binarization process was used to convert grayscale images into black and white pixels (0 bits for black and 1 bit for white). The pixels which had less value than threshold were converted to 0, and above threshold of image was converted into 1. During the testing and training,the raw image was passed to the YOLO model for plate detection. YOLO Darknet neural network framework was applied on a single neural network
+to image that divided the image into the region, and predicted bounding boxes and scoring probabilities for each region. The highest probability was selected as an object detected area. To localize the number plate, YOLOv3 and YOLOv4 were trained.The vehicle plate after detection was cropped and extracted using the bounding box information.
+The cropped image was then passed through a series of preprocessing techniques and used OCR to extract the characters.
+The performance using CNN with YOLOv3 and YOLOv4 was found to be 68.3\% and 67.76\% respectively while using OCR tesseract was found to be 70\% and 74\% respectively. The comparison with other models showed that the implementation using YOLOv and OCR tesseract was applicable in real time.
+\\
+\\
+\big[3\big] The proposed system first detects the vehicle and then captures the vehicle image. Vehicle number plate region is extracted using the image segmentation and characters are recognized using optical character recognition technique. The system can handle noisy, low illuminated, cross angled, nonstandard font number plates. The morphological transformation, Gaussian smoothing, and Gaussian thresholding the different image processing techniques has been used in the pre-processing stage. The contours have been applied by border following and contours are filtered based on character dimensions and spatial localization for number plate segmentation and then for character recognition K-nearest neighbor algorithm has been used.
+The paper consists of license plate localization and character recognition. First the license plate region is extracted from the input image on the basis of the high density, the vertical edges inside the license plate are extracted from the input image and then license plate candidates are extracted. The \ac{KNN} classifier is used for character candidate classification.  
+\\
+\\
+\big[4\big]This system detects the image of the number plate of a vehicle from video using video processing with raspberry pi and the number is extracted using different methods and algorithms. The system is applicable for entrances of gates in colleges and highly restricted areas. When any vehicle passes by the system the video is captured and then video is converted into images using OpenCV software. 
+This paper represents that-In first step, camera captures the video of vehicles number plate. To read this video MATLAB software is used. The video used for operations has timing of 10 to 15 seconds. The 10 second video contains 240 frames/images. In second step, video gets converted into frames at frame rate 24 fps. In third step, frames are converted into Images which is very important step. Then Opening and closing operations are done. To extract vehicle number plate, Image processing like segmentation, recognition, localization has been done. First canny edge detection algorithm detects the edges of image. Then morphological operator are used. And in this way number plate gets detected.
+In this paper firstly the image is captured using pi camera and video is taken as input and captured images will be stored as color jpeg format. The noise is present in the system. To remove the noise gray processing and median filtering is used. Grey processing is used to convert the image into gray color format and median filtering is used to remove noise. For detecting the license plate region the borders of rectangular plate is detected using bounding Box and edge Detector is used to detect the edge of vehicle. After Extraction segmentation is done. Segmentation is used to separate the characters present in the license plate. The OCR is used to recognize different characters and Digits. After recognition the characters are displayed at output in the form of .txt
+\\
+\\
+\big[5\big]The purpose of the study was to produce a transportation automation system capable of recognizing vehicle license plates using optical character recognition and their owners in real time using mobile devices as well as testing the accuracy of the system.Automatic License Plate Recognition, or ALPR for short, is a vehicle surveillance technique that reads license plates using optical character recognition in photographs.In applications such as law enforcement, traffic regulation, and other aspects of daily life, ALPR plays a significant role.
+Using the camera, take the image as the first stage. The license plate is extracted from the image in the second step using a variety of criteria, including borders, colors, and the presence of characters.
+In the third stage, license plates are divided into segments, and characters are extracted by projecting color information, identifying them, or matching their positions to a template. Finally, the retrieved characters are recognized by comparing them to the template or by employing classifiers like neural networks and fuzzy classifiers.
+Optical character recognition is known as OCR. Through the use of optics, the system is able to recognize characters automatically.Letters, numerals, and other special symbols like commas and question marks all follow the same structure in OCR, with different classes denoting various characters. The usual OCR system is made up of a number of parts.When a text-containing region is identified, a segmentation procedure is used to separate out each symbol. In order to make the extraction of features easier in the following step, extracted symbols can be treated to remove noise first. The system proposes first image acquisition followed by preprocessing and segmentation of the images. the images are then normalized and the features are extracted and the image is recognized.In the preprocessing stage the images are grayscale and binaryized to change the pixel intensity which then produces an image with binary colors black and white. At the segmentation stage, the position of each number and character is determined.
+Scaling against the image to create a fixed resolution for the image was done during the normalization stage. As we are all aware, the phone's camera offers a variety of resolutions, so choosing the best one is important to avoid having an excessively huge image that will be difficult to view and store in memory. After the image was extracted from the edge detection results, it was matched with the image in training database.The matching process was done by adjusting the size of image with the character in template library
+Following testing on 100 samples of license plate numbers, it could be said that 75 of the 100 license plates tested were successfully recognized, or 75\% of them. Character recognition success rate of 97.36\% with a total of 722 characters and 703 successfully recognized characters. The system could present information on the owner of the car that had been accurately identified. Characters that resembled one other and caused problems with recognition included B and 8, 2 and Z, 1 and I, D and 0, A and 4, and B and 8. Character segmentation errors can result in characters being abbreviated, which can alter how character recognition is perceived.
+\\
+\\
+\big[6\big]This research paper emphasizes the different phases of OCR which include:
+	\begin{itemize}
+		\item Pre-processing: This stage involves preparing the image or document for OCR by performing operations such as deskewing, binarization, and noise reduction to improve the quality of the image. 
+	\item Segmentation: This stage involves dividing the document or image into smaller regions, such as words, lines, or paragraphs, to facilitate the recognition process.
+	\item Normalization:As a result of the segmentation process, isolated characters are obtained that are ready to be processed in the next stage of the OCR process, known as feature extraction. The segmentation process also converts the image into a matrix of m*n, which can be normalized by minimizing the size and eliminating any unnecessary information from the image while preserving any important information.
+	\item Feature Extraction:This is the main stage of the OCR process, in which the system uses algorithms and machine learning techniques to analyze the pixels in the image and identify patterns that correspond to specific characters or words.
+	\item Classification: This is the main stage of the OCR process, in which the system uses algorithms and machine learning techniques to analyze the pixels in the image and identify patterns that correspond to specific characters or words.
+	\item Post Processing: This stage involves correcting any errors or mistakes made during the recognition process, such as misrecognized characters or words.
+\end{itemize}
+\big[7\big]The research described in this paper focuses on the development of an improved technique for OCR (Optical Character Recognition)-based license plate recognition using a neural network trained dataset of object features. This technique, known as \ac{ANPR} (Automatic Number Plate Recognition), is designed to be an automated, fast, accurate, and robust system for traffic control and law enforcement of traffic regulations. The proposed algorithm for license plate recognition is compared with existing methods to improve accuracy, and the whole system can be divided into three major modules: license plate localization, plate character segmentation, and plate character recognition. The system has been simulated on 300 national and international motor vehicle license plate images, and the results demonstrate that it meets the main requirements for such a system. In recent years, there has been significant research and development of algorithms in intelligent transportation, and the need for an accurate and reliable vehicle plate recognition system has become increasingly important.
+
+
+
+
+
+
+
+\chapter{METHODOLOGY}
+
+\section{Working Mechanism}
+
+\begin{figure}[h]
+\centering
+    %\includegraphics[scale=0.7]{images/Block.PNG}
+    \caption{Overall Working Mechanism}
+    \label{fig:my_label}
+\end{figure}
+\begin{enumerate}
+	\item Entry of vehicles and image capture: Firstly, as the vehicle enters into the parking space the time of entry is noted and the image of the number plate is captured by the scanner.
+	\item Object detection: Using the YOLO algorithm for the detection of objects, the number plate was identified and detected and the bounding bod coordinates for the number plates were produced as outputs.
+	\item Pre-processing: The detected license plate with the help of the bonding box coordinates goes through a series of steps for pre-processing which includes cropping the image according to the bounding box coordinates, re-sizing the cropped image followed by the process of eradicating noise and segmentation.
+	\item OCR for the detected number plate: After the pre-processing stage, the image ready for character recognition is produced and the characters present in the image are recognized and are extracted. 
+	\item Exit of vehicles and image capture: Similar to the module present at the entry section, the image of the vehicle number plate is captured by the scanner and is used to search the database in order to retrieve the entry time of the vehicle into the parking space.
+	\item Bill generation: On the basis of the entry and exit time of the vehicles which is given by the records stored in the database, the time difference is calculated and the total bill amount is calculated and presented as the output.
+\end{enumerate}
+\subsection*{OCR}
+OCR programs extract and reuse data from scanned documents, camera photos, and image-only PDFs. OCR stands for optical character recognition.
+OCR systems transform physical, printed documents into machine-readable text by combining hardware and software. Advanced processing is often handled by hardware, like an optical scanner, and software.
+OCR software can use artificial intelligence (AI) to create more sophisticated intelligent character recognition (ICR) techniques, such as recognizing languages or handwriting styles. A scanner is used by optical character recognition (OCR) to process a document's physical form. OCR software turns the document into a two-color or black-and-white version after all pages have been copied. Light and dark portions in the scanned-in image or bitmap are examined. 
+In our model, a pretrained model of OCR is used
+Before the characters are extracted from the image, the image goes through a series of pre-processing steps. The pre-processing stage includes:
+\begin{itemize}
+	\item Cropping the image: First , the image after the detection of the position of the license plate and the bounding box formulation is cropped according to the coordinates of the bounding ox so that we are resulted with  the number plate from where the character extraction is to be done.
+	\item Noise reduction and gray scaling: In order to male the image suitable for the character recognition, the image is filtered for the removal of noise and followed by the gray scaling of the cropped image so that the characters which are to be detected are separated from the background color. The conversion of image into black and white that is, improving the contrast causes better performance of the model.
+\end{itemize}
+The processed image is then sent through the process of OCR where the characters that are present in the image are extracted . The extraction process or the character recognition process is done with the help of either pattern recognition or feature recognition.
+\subsection*{YOLO}
+YOLO (You Only Look Once) is a real-time object detection algorithm that identifies specific objects in videos, live feeds, or images. This algorithm uses features learned by a convolutional neural network (CNN) to detect an object.Versions 1-3 of YOLO were created by Joseph Redmon and Ali Farhadi, and the third version of the YOLO machine learning algorithm is a more accurate version of the original ML algorithm.
+The YOLO algorithm is named “you only look once” because its prediction uses 1×1 convolutions; this means that the size of the prediction map is exactly the size of the feature map before it.  
+\\
+YOLO is a Convolutional Neural Network (CNN) for performing object detection in real-time. CNNs are classifier-based systems that can process input images as structured arrays of data and recognize patterns between them (view image below). YOLO has the advantage of being much faster than other networks and still maintains accuracy.
+It allows the model to look at the whole image at test time, so its predictions are informed by the global context in the image. YOLO and other convolutional neural network algorithms “score” regions based on their similarities to predefined classes. High-scoring regions are noted as positive detections of whatever class they most closely identify with. For example, in a live feed of traffic, YOLO can be used to detect different kinds of vehicles depending on which regions of the video score highly in comparison to predefined classes of vehicles.
+YOLO makes predictions of bounding boxes and class probabilities all at once.The YOLO algorithm divides the image into N grids, each of which has an equal-sized SxS region. These N grids are each in charge of finding and locating the thing they contain.
+Accordingly, these grids forecast the object label, the likelihood that the object will be present in the cell, and B bounding box coordinates relative to their cell coordinates.Due to numerous cells predicting the same object with varying bounding box predictions, it generates a lot of duplicate predictions.YOLO makes use of Non Maximal Suppression to deal with this issue.Yolo suppresses all bounding boxes with lower probability scores in non-maximal suppression.To do this, YOLO looks at the likelihood scores connected to each choice and selects the largest one. The bounding boxes with the largest Intersection over Union with the current high probability bounding box are then suppressed.Up until the final bounding boxes are obtained, this phase is repeated.
+
+\newpage
+\section{\ac{UML} Diagrams}
+\begin{figure}[h!]
+   % \includegraphics[scale=0.45]{images/USECASEDIAGRAM.png}
+    \caption{Use Case Diagram }
+    \label{fig:my_label}
+\end{figure}
+\begin{figure}[h]
+    %\includegraphics[scale=0.7]{images/DFDlevel0.png}
+    \caption{DFD level 0}
+    \label{fig:my_label}
+\end{figure}
+\begin{figure}[tbh]
+    \centering
+    %\includegraphics[scale=0.6]{images/DFDlevel1.png}
+    \caption{DFD level 1 Diagram}
+    \label{fig:my_label}
+\end{figure}
+\clearpage
+\section{Software Development Model}
+This project is being developed using an incremental methodology since it offers a functioning prototype at an early stage of development. The requirements and scope of the project can be altered as necessary by studying the prototype. The rationale for the preference for this software development strategy is the flexibility offered by adopting the incremental technique. In this paradigm, the project goes through several releases or iterations prior to its final release.
+\begin{figure}[h]
+    \centering
+    %\includegraphics[scale=0.3]{images/IncrementalOCR.png}
+    \caption{Incremental Model}
+    \label{fig:my_label}
+\end{figure}
+
+\chapter{Epilogue}
+
+\section{Expected Output}
+The main goal of the program is to detect the license plates in the vehicles and keep track of the entry and the exit time of the vehicles. The cost of the parking time is hence calculated and the bill is generated as the output of the program for the customer.
+\section{Work Completed}
+So far we have completed the task of detecting the number plates through YOLO and easy ocr. Also the vehicle number plates have been added to the database with the serial number in the order in which the  number plates are detected.
+The outputs are as follows:
+\begin{figure}[h!]
+    \centering
+    %\includegraphics[scale=0.3]{images/car.png}
+    \caption{Output of the image detection}
+    \label{fig:my_label}
+\end{figure}
+\begin{figure}[h!]
+    %\includegraphics[scale=0.3]{images/database.png}
+    \caption{Output of number plate entry in database}
+    \label{fig:my_label}
+\end{figure}
+\\
+\section{Works remaining}
+As we have decided to generate a bill with respect to the parking time of the vehicle, furthermore we plan to add the timings of the entry and exit of the vehicles so that the time difference can be calculated. Also the cost for any specific vehicle is to be specified and the total billing amount and the bill is to be generated. Further, works related to database management and searching of the number plates at the exit section is still to be implemented.
+\newpage
+%Reference
+\renewcommand\bibname{References} % Change heading to References
+\bibliographystyle{IEEEtran} % to use IEEE Format for referencing
+\addcontentsline{toc}{chapter}{References} % to add references in TOC
+\bibliography{library} % specify the .bib file containing reference information 
+
+%Comment this Chapter if you do not need to include Appendix.
+
+%\addcontentsline{toc}{chapter}{Appendix}
+
+\chapter*{References}
+
+	
+\end{document}

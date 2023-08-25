@@ -1,0 +1,340 @@
+
+\include{KECReportFormat} %includes the file KecReportFormat.tex that include all necessary formattings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Define Macros for Details of your Project
+\newcommand{\project}{Prefinal} %Specify "Major Project" or "Minor Project"
+\newcommand{\projectTitle}{SANSKRIT OCR} %specify "Title" of Your Project
+\newcommand{\doc}{Report} % specify the document you are preparing eg. "Proposal", "Mid-Term Report" or "Final Report" 
+% Note that You have to sibmit "Final Report" for Pre-final defense as well.
+\newcommand{\subCode}{CT654} %specify Subject of Your Project
+\newcommand{\degree}{Bachelor in Computer Engineering} %specify your degree
+\newcommand{\submittedBy}%Specify Names and Roll/Symbol Numbers of the Project Group Members
+{
+%Edit Member Names and Roll/Symbol No. and adjust width (\makebox[width]) if necessary 
+\makebox[8cm]{OJASHWI NEUPANE  \hfill[KAN076BCT051]}\\
+\makebox[8cm]{RANITA MAGAR  \hfill[KAN076BCT064]}\\
+\makebox[8cm]{SHALU ROKKA  \hfill[KAN076BCT079]}\\
+\makebox[8cm]{SRIJANA RIJAL  \hfill[KAN076BCT086]}
+%\makebox[9cm]{Member Name \hfill [Roll/Symbol No.]}\\
+} % Note that You must write your "Symbol Numbers"(Exam Roll Numbers) for Final Defenses
+
+\newcommand{\submittedTo}{Department of Computer and Electronics Engineering} %specify your department
+\newcommand{\hod}{Er. Rabindra Khati} %specify Head ot the department
+\newcommand{\defYear}{2023} %Defense Year
+\newcommand{\defMonth}{January} %Defense Month- January, February, ...
+\newcommand{\defDay}{13} %specify Defense Day- 1, 2, ...
+
+\newcommand{\supervisor}{none} % Specify Name of Supervisor for Major Project (write "none" if no Supervisor is assigned)
+\newcommand{\degSup}{Supervisor's Designation\\Second Line of Designation (if required)} %Specify Designation of Supervisor for Major Project, use multiple lines (\\) if necessary
+\newcommand{\external}{External's Name} %Specify Name of External for Major Project (Required for Black Book)
+\newcommand{\degExternal}{External's Designation\\Second Line of Designation (if required)} %Specify Name of External for Major Project (Required for Black Book) , use multiple lines (\\) if necessary
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%The Document
+\begin{document}
+
+%\KECcoverpage % command defined in KECReportFormat
+%\KECtitlepage % command defined in KECReportFormat
+
+\pagenumbering{roman} % starts pagenumberins in Roman numerals i, ii, ...
+
+%Copyright Page is required for FINAL REPORT only. Comment this section for other Reports.
+%\KECcopyright % defined in KECReportFormat.tex
+
+%Approval Page is required for FINAL(Black Book Binded) REPORT of MAJOR PROJECT only. Comment this section for other Reports. 
+%\KECapproval % defined in KECReportFormat.tex
+
+\chapter*{Abstract} % The summary of your report
+\addcontentsline{toc}{chapter}{Abstract}%to include this chapter in TOC 
+This project entitled “SANSKRIT OCR” is a solution of reading and understanding old inscription and documents which are unconstrained handwritten texts in Sanskrit language. We are designing and developing an Web application which is used to scan Sanskrit historical documents.\\
+This paper represents a technique for recognizing the characters from an image using optical character recognition (OCR). The important steps of this system are pre-processing, removal of noise, segmentation of the text image, feature extraction and translation. The quality of input document is very important to achieve high accuracy rate.
+\par
+\textbf{\textit{Keywords$-$}} \emph{Classification, Extraction, Optical Character Recognition, Segmentation, Translation}
+
+\chapter*{Acknowledgment}
+\addcontentsline{toc}{chapter}{Acknowledgment}%to include this chapter in TOC
+We would like to express sincere gratitude to Department head Er. Rabindra Khati, Project Co-ordinator Er. Bishal Thapa and all the faculty members of Kantipur Engineering College for the continuous support during this project for their patience, motivation,enthusiasm, and immense knowledge. Their guidance helped us in all time of research, development and implementation of this project.   \par
+%Finally we would like to thank our family and friends for all the support and encouragement.\par
+%to display members name under Acknowledgement
+\begin{flushright}
+\vskip -20pt
+\setstretch{1.2}
+\submittedBy
+
+\end{flushright}
+
+%to adjust spacings for TOC, LOF, LOT
+{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TOC, LOF and LOT
+\KECadjusttocspacings % defined in KECReportFormat.tex to adjust spacings
+\makeatletter
+% to add vskip of 18 point which is reduced when parskip is set to 0 in \LECadjustspacings
+\def\@makeschapterhead#1{%
+  %\vspace*{50\p@}% Remove the vertical space
+  {\newpage \parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \center \fontsize{16pt}{1} \bfseries \MakeUppercase{#1}\par\nobreak
+   % \vskip 18\p@ % adjust space after heading 18pt
+  }}
+\makeatother 
+
+\tableofcontents % prints table of contents
+\listoffigures % prints list of figures
+\addcontentsline{toc}{chapter}{List of Figures}
+%\listoftables % prints list of table
+%\addcontentsline{toc}{chapter}{List of Tables}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%comment this chapter if you don't have List of Abbreviations
+%\KECloa % defined in KECReportFormat
+
+%comment this chapter if you don't have List of Symbols
+%\KEClos % defined in KECReportFormat
+
+\newpage
+\pagenumbering{arabic} % starts pagenumbering in arabic numerals
+
+\chapter{Introduction}
+\section{Background}\label{sec:bkgrnd}%label your section if you require to refer them somewhere else in your document.
+Nepal has a rich heritage of oral literature as well as a body of written literature that has been developed during last two and half centuries. The vocabulary and style of written Nepali are influenced by Sanskrit and recorded with the Devanagari script. Sanskrit has been the source of later languages and literature.
+\par
+ It is noteworthy that though ancient and classical, Sanskrit is still used as medium of expression by scholars throughout India, Nepal and somewhere in other parts of the world e.g., America, and Germany. Sanskrit is an ancient and classical language of Nepal in which ever first book of the world Rigveda was compiled. The Vedas are dated by different scholars from 6500 B.C. to 1500 B.C. Sanskrit language must have evolved to its expressive capability prior to that. It was to some extent different from the present Sanskrit. It is termed as Vedic Sanskrit. The Pratishakhyas explained the forms of the words and other grammatical points. A vast literature -Vedas, Brahmana-Granthas, Aranyakas, Upanishads and Vedangas had come to existence which could be termed as Vedic Literature being written in Vedic Sanskrit.[1]
+ \par
+Trying to grasp and understand multiple languages is a difficult task in itself moreover understanding historical documents and scripts is a whole new level. It is still the human that read and translate these languages. Thus, our goal is to design and develop an app that can do these tasks better and in more efficient way. Our app captures historical documents written in Sanskrit languages. These inscriptions may have historical knowledge and events documented for archeological and scientific research.
+\par
+ The complexities of the characters in these languages mainly Sanskrit may put even the most modern technologies to test. OCR may help save time and be more efficient when travelling or during Epigraphy. User can capture images of historical documents and scripts and translate them to readable format and can be used for translating into other languages. 
+
+\section{Problem Definition}
+In current digital age, the digitization of documents become obligatory to have all the available information in a digital form recognized by machines .A direct solution to the use of character recognition systems to convert document images into text, this requires research in the area optical character recognition (OCR).The classification and analysis of complex/conjoin characters is important in character recognition, that has not addressed clearly for Sanskrit Manuscripts. So, there is a strong need of quick and accurate character recognition for Sanskrit Manuscripts. The is need of ground-truthed database Sanskrit character recognition systems.
+
+%Therefore in this project we propose a heart monitoring wearable device that constantly monitors the heart rate. This will help identify possible heart diseases.\\
+\section{Objectives}
+The primary objectives of this projects are as follows:
+\vspace{-18pt}
+\begin{enumerate}
+\item To scan a picture and recognize the letters
+\item To create OCR framework 
+\item To form a digitized Sanskrit document
+%\item  To compare of federated learning and centralized learning
+\end{enumerate}
+
+\section{Project Features}
+The project will be able to accomplish following:
+\vspace{-18pt}
+\begin{itemize}
+\item Letter recognition of different languages
+\item Digitization of documents
+\item Easy to use user interface 
+\end{itemize}
+
+\section{Project Application}
+\vspace{-18pt}
+\begin{itemize}
+\item It contributes in the field of Epigraphy and Archeology
+\item Used in historical and scientific purpose
+\item For translation and understanding of inscriptions and documents 
+\end{itemize}
+
+\section{System Requirement}
+\vspace{-18pt}
+\subsection{Software Requirements}
+The software requirements are as follows:
+\begin{enumerate}
+\item Windows/Linux/Mac
+\item Python IDE
+\end{enumerate}
+
+\subsection{Hardware Requirements}
+The hardware requirements are as follows:
+\begin{enumerate}
+\item PC with at least 8 GB RAM
+\item Smart Phone supporting android
+\end{enumerate}
+\label{tblSampleTable}
+%\end{table}
+
+\section{Project Feasibility}
+The feasibility analysis of the system has been done from various aspects such as technical, operational and economical viewpoint. \par
+The present technology is sufficient to meet the requirements of the system, the required algorithm exists and the device to input the data to the system is also present. The system is believed to work well when developed and installed. The requirements for the project have been accounted for and the system is built on available resources to meet the requirements. The detailed feasibility study is as follows
+
+\subsection{Technical Feasibility}
+The existing network and operating system services would allow for feasible implementation of this project. Thus, it is technically feasible.
+
+\subsection{Operational Feasibility}
+The operation of the system requires only a computer and user interface will be simple and intuitive. It will contain an interface to scan a picture and translate it to understandable language. The project is operationally workable and user friendly to end-users.
+\subsection{Economic Feasibility}
+Developed system is economically feasible. It can be developed on a simple PC which can be available at an affordable price. System is built on open-source language, so development is free of cost. All the resources and research paper are available on the internet. So, we can say that the developed system is economically feasible.
+\subsection{Schedule Feasibility}
+The estimated schedule for this project is shown in the following Gantt Chart. The work has been divided into 5 phases.
+\begin{figure}[!h] % tbh means top, bottom or here (priority: left to right)
+\begin{center}
+	%\includegraphics[width = 3in]{images/logo.png}
+	%\includegraphics[width = 6in]{images/ganu.png}
+	\caption{Gantt Chart} %figure name
+	\label{figGanttChart} % for referencing
+\end{center}
+\end{figure}
+
+
+\chapter{Literature Review}
+\section{Related Papers}
+Early efforts in OCRs involve a template based and feature-based approach for letter classification. In the template-based approach, each unknown letter or pattern is compared with a standard template pattern and the degree of similarity between the two patterns is used to decide classification. Feature-based approaches identify unique characteristics of patterns or letters and utilize them for classification. Sanskrit manuscripts are one of the bases for Science, Math, Hindu mythology, and culture. So, it is better to make these easily available and easy to read. Our base paper Optical Character Recognition for Sanskrit using Convolution Neural Networks, proposes a CNN based Optical Character Recognition system (OCR) which accurately digitizes Ancient Sanskrit manuscripts that are not necessarily in good condition. OCR is robust to image quality, image contrast, font style and font size, which makes it an ideal choice for digitizing soiled and poorly maintained Sanskrit manuscripts. Here, the input of all the convnets is fixed to 32x32x3 RGB image. The image is passed through a series of convolution and max-pooling operations. Each convolution operation contains a 3x3 kernel with stride 1 and no spatial padding. The convolutional output is followed by a ReLU function. The ReLU functions do not saturate while training the convnet and eventually help avoid the vanishing gradient problem. A max pooling operation is used after every 2 or 3 Convolution operations. A kernel/filter size of 2x2 with a stride of 2 pixels is used in each max pooling operation. The final convolution layer is followed by 2 fully connected layers.[1]\\
+Today, OCR systems are less expensive and can recognize more fonts than ever before. The history of handwriting recognition systems is incomplete without mentioning the Optical Character Recognition (OCR) systems which preceded them. Modern OCR was said to have begun in 1951. The basic step involved in Optical Character Recognition are: Image Acquisition, Pre-processing, Document Page Analysis, Feature Extraction, Training and Recognition, Post processing.[2] Image processing has been in use for some times now and demands of image processing is growing in multimedia, biomedical imaging, pattern recognition, etc. [3]\\ Image Acquisition Sensors are used to quantize the given images, sometimes which may be blurred or noisy due to fog, movement, etc. Segmentation It is dividing a image into small regions that may overlap. Then, extraction of meaningful features such as texture, color, shape takes place. The image is then illuminated, enhanced, filtered, restored to be compressed and coded. These are used in application areas such as automatic visual inspection system, biomedical imaging, human visual perception, etc.\\
+Oracle Bone Inscriptions (OBI)s are deciphered by translating between different writing systems; Chinese writing systems have evolved over time and ancient OBIs can be deciphered by translating their inscriptions to a known inscription in an adjacent writing system, but this is a complex and time-consuming process. Case-based system, to support this task, allowing a paleographer to present an unknown inscription (image) as a query, to receive a set of 7 similar images from an adjacent writing system with associated scholarly information, and so help guide the deciphering of the query. [4] 
+\\Interactive technique for extraction of text characters from the images of stone inscriptions is designed particularly for on-site processing of inscription images acquired at various historic palaces, monuments, and temples. The process involves character spotting and extraction of the inscribed information to editable text, which would subsequently help the archaeologists for epigraphy, transliteration, and translation of rock inscriptions.[5]
+\section{Related Works}
+Devanagari is an Indic script and forms a basis for over 100 languages spoken in India and Nepal including Hindi, Marathi, Sanskrit, and Maithili. It consists of 47 primary alphabets, 14 vowels, 33 consonants, and 10 digits. The Devanagari script consists of consonants and modifiers. This project implements a ResNet architecture with 85 convolution layers to classify images. The dataset that has been used has 34604 handwritten images. Deep learning techniques are applied to extract features and recognize the characters in an image. Deep Convolutional Neural Network (DCNN) have been incorporated to extract features and classify the input images. [6] Sanskrit manuscripts have complexities such as image degradation, lack of accurate knowledge and long length words. Due to these challenges, the word accuracy of available OCR systems, is not very high. They present an attention-based LSTM model for reading Sanskrit characters in line images.[7]
+
+
+
+
+
+
+
+\chapter{Methodology}
+  
+\section{WorkingMechanism}
+\begin{figure}[tbh] % tbh means top, bottom or here (priority: left to right)
+\begin{center}
+	%\includegraphics[width = 3in]{images/logo.png}
+	%\includegraphics[width = 4in]{images/q.jpg}
+	%\caption{} %figure name
+	\label{figObjectDetectionusingYOLO} % for referencing
+\end{center}
+\end{figure}
+The data is first sent to the data set training where the data set is trained. Then so obtained data is sent to image pre-processing block where the steps taken to format images before they are used by model training and inference by using CNN. Then next block is segmentation block where a digital image is broken down into various subgroups called Image segments which helps in reducing the complexity of the image to make further processing or analysis of the image simpler. After segmentation we have Feature Extraction block where feature extraction of the image is done using feature HOG. Then next block is Classification block where the process of categorizing and labeling groups of pixels or vectors within an image based on specific rules is done. It uses the spectral information represented by the digital numbers in one or more spectral bands, and attempts to classify each individual pixel based on this spectral information. Then so obtained result is sent to the database which facilitate the storage, retrieval, modification, and deletion of data in conjunction with various data-processing operations.
+The user  take the image of the inscriptions. Then the image is sent to image detection block which uses an image recognition algorithm, also known as an image classifier, that takes an image as input and outputs what the image contains. Then so obtained output is sent to feature extraction block where  a large number of pixels of the image are efficiently represented in such a way that interesting parts of the image are captured effectively using . The next block is classification block which uses the spectral information represented by the digital numbers in one or more spectral bands, and attempts to classify each individual pixel based on this spectral information using CNN. Then so obtained output is sent to database and translation is done.
+
+\subsection{Neural Network}
+Neural Networks are one of the learning algorithms used within machine learning. They consist of different layers for analyzing and learning data. Every hidden layer tries to detect patterns on the picture. When a pattern is detected, the next hidden layer is activated and so on. The more layers in a neutral network, the more is learned and the more accurate the pattern detection is.  Neural Network learn and attribute weights to the connections between the different neurons each time the network processes data.
+
+\subsubsection{Convolutional Neural Network}
+The character classification process would be used to assign certain part of text to one or more predefined classes or categories. For the purpose of classification, we have used CNN algorithm.
+\\A convolutional neural network, or CNN, is a deep learning neural network designed for processing structured arrays of data such as images. Convolutional neural networks are widely used in computer vision and have become the state of the art for many visual applications such as image classification, and have also found success in natural language processing for text classification. Convolutional neural networks are very good at picking up on patterns in the input image, such as lines, gradients, circles, or even eyes and faces. It is this property that makes convolutional neural networks so powerful for computer vision. Convolutional neural networks can operate directly on a raw image and do not need any preprocessing.
+\begin{figure}[tbh] % tbh means top, bottom or here (priority: left to right)
+\begin{center}
+	%\includegraphics[width = 3in]{images/logo.png}
+	%\includegraphics[width = 6in]{images/cnnimg.png}
+	\caption{General CNN sequence to classify handwritten digits}
+	 %figure name
+	\label{figObjectDetectionusingYOLO} % for referencing
+\end{center}
+\end{figure}\\
+The architecture of a convolutional neural network is a multi-layered feed-forward neural network, made by stacking many hidden layers on top of each other in sequence. It is this sequential design that allows convolutional neural networks to learn hierarchical features. The hidden layers are typically convolutional layers followed by activation layers, some of them followed by pooling layers which is followed by fully connected layer.
+
+
+
+
+ \section{System Diagram}
+ \subsection{Use case diagram}
+ \begin{center}
+	%\includegraphics[width = 3in]{images/logo.png}
+	%\includegraphics[width = 6in]{images/w.jpg}
+	%\caption{Usecase Diagram} %figure name
+	\label{figLaneDetectionusingFeatureSelection} % for referencing
+  \end{center}
+\end{figure}\\
+The above figure shows a Sanskrit OCR use case diagram which includes different use cases like click/upload image, scan image, pre-process image, segmentation, feature extraction, digitize documents/manuscript and exit/restart. Here user is a lead actor which has associative relationship between click/upload image and exit/restart. The input must be digitized first for user to exit/restart the software which is followed by extraction of feature, segmentation, pre-process image, scan image and click/upload image. The relationship between use cases is shown by include relationship. \\
+ \subsection{DFD level diagram}
+ \begin{center}
+	%\includegraphics[width = 3in]{images/logo.png}
+	%\includegraphics[width = 5in]{images/e.jpg}
+	\caption{Level 0 diagram} %figure name
+	\label{figLaneDetectionusingFeatureSelection} % for referencing
+\end{center}
+\end{figure}\\
+A data flow diagram (DFD) maps out the flow of information for any process or system. In Sanskrit OCR system user feeds Data in form of pictures and images to the system to get digitized document as output. \\
+\begin{center}
+	%\includegraphics[width = 3in]{images/logo.png}
+	%\includegraphics[width = 5in]{images/r.jpg}
+	\caption{Level 1 diagram} %figure name
+	\label{figLaneDetectionusingFeatureSelection} % for referencing
+\end{center}
+\end{figure}\\
+The Level 0 DFD is broken down into more specific, Level 1 DFD. Level 1 DFD depicts basic modules in the system and flow of data among various modules. Level 1 DFD also mentions basic processes and sources of information. It provides a more detailed view of the Context Level Diagram. Here, the main functions carried out by the system are highlighted as we break into its sub-processes. 
+
+As seen in the above figure, only one entity ( a user ) is represented. It also has two data storages, a training dataset and a testing dataset (fer-2013). They contribute in system training. Image scan, image pre-process, feature extraction and character classification are its four processes. After the datasets, image is scanned, the scanned image is sent for image preprocess. The preprocessed image is subsequently sent to feature extraction and then classification. The output can be seen in the digitized form. 
+ \subsection{Software Development Model}
+ \begin{figure}[tbh] % tbh means top, bottom or here (priority: left to right)
+\begin{center}
+	%\includegraphics[width = 3in]{images/logo.png}
+	%\includegraphics[width = 5in]{images/incre.png}
+	\caption{System Block Diagram} %figure name
+	\label{figLaneDetectionusingFeatureSelection} % for referencing
+\end{center}
+\end{figure}
+ Incremental model is a method of software engineering that combines the elements of waterfall model in iterative manner. It involves both development and maintenance. In this model requirements are broken down into multiple modules. Incremental development is done in steps from analysis design, implementation, testing/verification, maintenance. Each iteration passes through the requirements, design, coding and testing phases. The first increment is often a core product where the necessary requirements are addressed, and the extra features are added in the next increments. The core product is delivered to the client. Once the core product is analyzed by the client, there is plan development for the next increment.\\
+ Advantages of Incremental Model:
+ \begin{itemize}
+\item Generates working software quickly and early during the software life cycle.
+\item This model is more flexible – less costly to change scope and requirements.
+\item It is easier to test and debug during a smaller iteration.
+\item In this model customer can respond to each built.
+\item Lowers initial delivery cost.
+\item Easier to manage risk because risky pieces are identified and handled during it's iteration.
+
+ \end{itemize}
+ 
+
+
+\chapter{Epilogue}
+\section{Expected Output}
+\begin{figure}[tbh] % tbh means top, bottom or here (priority: left to right)
+\begin{center}
+	%\includegraphics[width = 3in]{images/logo.png}
+	%\includegraphics[width = 5in]{images/s.jpg}
+	%\caption{Expected Output} %figure name
+	\label{figLaneDetectionusingFeatureSelection} % for referencing
+\end{center}
+\end{figure}\\
+\begin{figure}[tbh] % tbh means top, bottom or here (priority: left to right)
+\begin{center}
+	%\includegraphics[width = 3in]{images/logo.png}
+	%\includegraphics[width = 5in]{images/z.jpg}
+	\caption{Expected Output } %figure name
+	\label{figLaneDetectionusingFeatureSelection} % for referencing
+\end{center}
+\end{figure}
+This website will have a good user interface and user experience. In this website, user will have option to either click a picture or upload an image of manuscript/document from camera roll to be digitized. Then this image will go through processes like preprocessing, segmentation, feature extraction, etc. to give the result as shown below. The result can be viewed in the website itself after processing.   
+
+\section{Work Progress and Remaining}
+\subsection{Work Completed}
+We have read research papers regarding the OCR and the algorithms related to it.\\
+•	We collected the datasets required for the project \\
+•	We trained datasets for the OCR purpose and also tested the        data for prediction\\
+•   We also completed the segmentation algorithm\\
+So far, the obtained result is as shown in the figure below
+\begin{center}
+	%\includegraphics[width = 3in]{images/logo.png}
+	%\includegraphics[width = 5in]{images/x.jpg}
+	\caption{ Output for Testing} %figure name
+	\label{figLaneDetectionusingFeatureSelection} % for referencing
+\end{center}
+\end{figure}
+
+\subsection{Work Remaining}
+The following are the remaining works:\\
+1.	Integration and post processing\\
+
+\chapter*{References}
+%
+%
+%
+%
+
+%Reference
+%\renewcommand\bibname{References} % Change heading to References
+%\bibliographystyle{IEEEtran} % to use IEEE Format for referencing
+\addcontentsline{toc}{chapter}{References} % to add references in TOC
+%\bibliography{library} % specify the .bib file containing reference information 
+
+
+\end{document}
