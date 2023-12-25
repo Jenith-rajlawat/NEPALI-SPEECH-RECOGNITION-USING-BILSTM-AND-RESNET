@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.22)  25 AUG 2023 07:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 23.1) (preloaded format=pdflatex 2023.3.22)  25 DEC 2023 12:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -462,6 +462,15 @@ LaTeX Warning: Label `fig:my_label' multiply defined.
 
 LaTeX Warning: Label `fig:my_label' multiply defined.
 
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
+
+LaTeX Warning: Label `fig:my_label' multiply defined.
+
 )
 \openout1 = `"Major report.aux"'.
 
@@ -560,7 +569,7 @@ nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
 or `english'. on input line 134.
-<images/logo.png, id=114, 102.3825pt x 102.3825pt>
+<images/logo.png, id=110, 102.3825pt x 102.3825pt>
 File: images/logo.png Graphic file (type png)
 <use images/logo.png>
 Package pdftex.def Info: images/logo.png  used on input line 137.
@@ -617,11 +626,11 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 [3] [4]
-<images/Ganttchart.png, id=213, 439.6425pt x 120.45pt>
+<images/Ganttchart.png, id=214, 694.69537pt x 136.1085pt>
 File: images/Ganttchart.png Graphic file (type png)
 <use images/Ganttchart.png>
 Package pdftex.def Info: images/Ganttchart.png  used on input line 310.
-(pdftex.def)             Requested size: 351.71446pt x 96.3601pt.
+(pdftex.def)             Requested size: 416.82043pt x 81.66571pt.
  [5 <./images/Ganttchart.png>]
 Chapter 2.
 
@@ -643,13 +652,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 325--332
 
 [7] [8] [9]
 Chapter 3.
-<images/Training Flowchart.jpg, id=251, 721.19438pt x 301.8778pt>
+<images/Training Flowchart.jpg, id=252, 721.19438pt x 301.8778pt>
 File: images/Training Flowchart.jpg Graphic file (type jpg)
 <use images/Training Flowchart.jpg>
 Package pdftex.def Info: images/Training Flowchart.jpg  used on input line 352.
 
 (pdftex.def)             Requested size: 360.59631pt x 150.93852pt.
-<images/Implementation Flowchart.jpg, id=252, 618.31pt x 323.2075pt>
+<images/Implementation Flowchart.jpg, id=253, 618.31pt x 323.2075pt>
 File: images/Implementation Flowchart.jpg Graphic file (type jpg)
 <use images/Implementation Flowchart.jpg>
 Package pdftex.def Info: images/Implementation Flowchart.jpg  used on input lin
@@ -702,19 +711,19 @@ o smaller frames.
  []
 
 [12]
-<images/BlockMFCC.png, id=276, 1018.80624pt x 501.875pt>
+<images/BlockMFCC.png, id=277, 1018.80624pt x 501.875pt>
 File: images/BlockMFCC.png Graphic file (type png)
 <use images/BlockMFCC.png>
 Package pdftex.def Info: images/BlockMFCC.png  used on input line 443.
 (pdftex.def)             Requested size: 407.51527pt x 200.74643pt.
  [13 <./images/BlockMFCC.png>]
-<images/residuallearning.png, id=283, 207.77625pt x 280.04625pt>
+<images/residuallearning.png, id=284, 207.77625pt x 280.04625pt>
 File: images/residuallearning.png Graphic file (type png)
 <use images/residuallearning.png>
 Package pdftex.def Info: images/residuallearning.png  used on input line 463.
 (pdftex.def)             Requested size: 166.2212pt x 224.0373pt.
  [14 <./images/residuallearning.png>]
-<images/decoding.png, id=290, 208.3785pt x 423.08063pt>
+<images/decoding.png, id=291, 208.3785pt x 423.08063pt>
 File: images/decoding.png Graphic file (type png)
 <use images/decoding.png>
 Package pdftex.def Info: images/decoding.png  used on input line 489.
@@ -724,19 +733,19 @@ Package pdftex.def Info: images/decoding.png  used on input line 489.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [15] [16 <./images/decoding.png>]
-<images/usecase.png, id=307, 761.84625pt x 610.53094pt>
+<images/usecase.png, id=308, 761.84625pt x 610.53094pt>
 File: images/usecase.png Graphic file (type png)
 <use images/usecase.png>
 Package pdftex.def Info: images/usecase.png  used on input line 503.
 (pdftex.def)             Requested size: 342.82764pt x 274.73637pt.
  [17 <./images/usecase.png>]
-<images/ActivityDiagram1.jpg, id=313, 493.845pt x 1027.84pt>
+<images/ActivityDiagram1.jpg, id=314, 493.845pt x 1027.84pt>
 File: images/ActivityDiagram1.jpg Graphic file (type jpg)
 <use images/ActivityDiagram1.jpg>
 Package pdftex.def Info: images/ActivityDiagram1.jpg  used on input line 511.
 (pdftex.def)             Requested size: 246.92189pt x 513.91875pt.
  [18 <./images/ActivityDiagram1.jpg>]
-<images/incremental.jpg, id=318, 994.71625pt x 407.5225pt>
+<images/incremental.jpg, id=319, 994.71625pt x 407.5225pt>
 File: images/incremental.jpg Graphic file (type jpg)
 <use images/incremental.jpg>
 Package pdftex.def Info: images/incremental.jpg  used on input line 525.
@@ -748,23 +757,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 520--530
 
 [19 <./images/incremental.jpg>]
 Chapter 4.
+<images/output2.png, id=324, 741.36975pt x 409.53pt>
+File: images/output2.png Graphic file (type png)
+<use images/output2.png>
+Package pdftex.def Info: images/output2.png  used on input line 546.
+(pdftex.def)             Requested size: 296.54265pt x 163.80908pt.
 [20
 
-] (Major report.bbl [21
+ <./images/output2.png>]
+<images/testtrainerror.png, id=331, 880.2486pt x 659.8251pt>
+File: images/testtrainerror.png Graphic file (type png)
+<use images/testtrainerror.png>
+Package pdftex.def Info: images/testtrainerror.png  used on input line 554.
+(pdftex.def)             Requested size: 352.0932pt x 263.92535pt.
+<images/output1.png, id=332, 829.59938pt x 346.29375pt>
+File: images/output1.png Graphic file (type png)
+<use images/output1.png>
+Package pdftex.def Info: images/output1.png  used on input line 561.
+(pdftex.def)             Requested size: 331.83388pt x 138.51503pt.
+ [21 <./images/testtrainerror.png> <./images/output1.png>] (Major report.bbl [2
+2
 
-]) [22] (Major report.aux)
+]) [23] (Major report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `"Major report".out' has not changed.
-(rerunfilecheck)             Checksum: 5D3016698FBE883AF9D4D9A2B2EF47EF;3822.
+(rerunfilecheck)             Checksum: F3BAA65838148FF372A84A95BE48D11A;3689.
  ) 
 Here is how much of TeX's memory you used:
- 17844 strings out of 476339
- 370792 string characters out of 5788591
+ 17867 strings out of 476339
+ 371325 string characters out of 5788591
  1860340 words of memory out of 5000000
- 37965 multiletter control sequences out of 15000+600000
- 538988 words of font info for 92 fonts, out of 8000000 for 9000
+ 37982 multiletter control sequences out of 15000+600000
+ 538989 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  82i,8n,82p,1722b,732s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {C:/Users/Dell/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <C:
@@ -779,9 +805,9 @@ TeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Dell/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Dell/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Dell/AppData/Local/Program
 s/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "Major report.pdf" (27 pages, 558884 bytes).
+Output written on "Major report.pdf" (28 pages, 978742 bytes).
 PDF statistics:
- 407 PDF objects out of 1000 (max. 8388607)
- 90 named destinations out of 1000 (max. 500000)
- 275 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 419 PDF objects out of 1000 (max. 8388607)
+ 93 named destinations out of 1000 (max. 500000)
+ 282 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -5,7 +5,7 @@ Email: mns.dkl19@gmail.com
 Publication: https://doi.org/10.1109/ICICT54344.2022.9850832
 """
 
-from .configs import MODEL_NAME, INPUT_DIM, NUM_UNQ_CHARS
+from configs import MODEL_NAME, INPUT_DIM, NUM_UNQ_CHARS
 from tensorflow.keras import layers, Model, Input
 import tensorflow.keras.backend as K
 import numpy as np

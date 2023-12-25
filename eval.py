@@ -8,15 +8,15 @@ if __name__ == "__main__":
 
     # Loads the trained model
     print("Loading model.....")
-    model = load_model("model/trained_model1.h5")
+    model = load_model("model/trained_model.h5")
     print("Model loaded \u2705 \u2705 \u2705 \u2705\n")
     
 
     # Loads wav file
     wavs = []
     print("Loading wav files.....")
-    wavs.append(load_wav("dataset/wav_files(sampled)/0f43e91c4e.flac"))
-    wavs.append(load_wav("dataset/wav_files(sampled)/0f6725b07e.flac"))
+    wavs.append(load_wav("dataset/audio/recorded_audio.flac"))
+   # wavs.append(load_wav("dataset/wav_files(sampled)/0f6725b07e.flac"))
     print("Wav files loaded \u2705 \u2705 \u2705 \u2705\n")
     
     """Gives the array of predicted sentences"""
@@ -31,4 +31,5 @@ if __name__ == "__main__":
     """Gives Character Error Rate (CER) between the targeted and predicted output"""
     print("Calculating CER.....")
     cer = CER_from_wavs(model, wavs, ["राज्य सिक्किमको", "लगेर हानेमा गलत"], UNQ_CHARS)
+    #राज्य सिक्किमको
     print(cer, "\n")

@@ -13,3 +13,6 @@
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Activity Diagram of the Proposed System\relax }}{18}{figure.caption.12}%
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Incremental Model\relax }}{19}{figure.caption.13}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Training on the model\relax }}{20}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Train and Test Loss\relax }}{21}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Predicting Audio Output\relax }}{21}{figure.caption.16}%

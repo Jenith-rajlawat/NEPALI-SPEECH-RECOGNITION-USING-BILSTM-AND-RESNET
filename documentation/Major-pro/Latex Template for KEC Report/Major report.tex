@@ -7,7 +7,7 @@
 \newcommand{\projectTitle}{NEPALI SPEECH RECOGNITION USING BiLSTM and ResNet} %specify "Title" of Your Project
 \newcommand{\doc}{Mid-Term Report} % specify the document you are preparing eg. "Proposal", "Mid-Term Report" or "Final Report"32
 % Note that You have to sibmit "Final Report" for Pre-final defense as well.
-\newcommand{\subCode}{CT707} %specify Subject of Your Project
+\newcommand{\subCode}{CT755} %specify Subject of Your Project
 \newcommand{\degree}{Bachelor in Computer Engineering} %specify your degree
 \newcommand{\submittedBy}%Specify Names and Roll/Symbol Numbers of the Project Group Members
 {
@@ -22,14 +22,14 @@
 \newcommand{\submittedTo}{Department of Computer and Electronics Engineering} %specify your department
 \newcommand{\hod}{Er. Rabindra Khati} %specify Head ot the department
 \newcommand{\defYear}{2023} %Defense Year
-\newcommand{\defMonth}{August} %Defense Month- January, February, ...
+\newcommand{\defMonth}{December} %Defense Month- January, February, ...
 \newcommand{\defDay}{1} %specify Defense Day- 1, 2, ...
 
 \newif\ifhassupervisor
-\hassupervisorfalse % to display supervisor name use command- \hassupervisortrue
+\hassupervisortrue % to display supervisor name use command- \hassupervisortrue
  
-\newcommand{\supervisor}{Supervisor's Name} % Specify Name of Supervisor for Major Project
-\newcommand{\degSup}{Supervisor's Designation\\Second Line of Designation (if required)} %Specify Designation of Supervisor for Major Project, use multiple lines (\\) if necessary
+\newcommand{\supervisor}{Prof. Dr. Subarna Shakya} % Specify Name of Supervisor for Major Project
+\newcommand{\degSup}{Professor\\Department of Electronics and Computer Engineering, IOE Pulchowk Campus} %Specify Designation of Supervisor for Major Project, use multiple lines (\\) if necessary
 \newcommand{\external}{External's Name} %Specify Name of External for Major Project (Required for Black Book)
 \newcommand{\degExternal}{External's Designation\\Second Line of Designation (if required)} %Specify Name of External for Major Project (Required for Black Book) , use multiple lines (\\) if necessary
 
@@ -307,7 +307,7 @@ With the advancements in technology, operating any kind of system software or ap
 Schedule feasibility is defined as the likelihood of a project being completed within its designated time limits and by the planned due date. If a project has a high probability of being completed on time, its schedule feasibility is considered high. Schedule feasibility ensures that a project can be finished before the technology becomes obsolete. Given the numerous features in our project, but with the potential for high-quality implementation, there is a very high probability that it will be completed on time.
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.8]{images/Ganttchart.png}
+    \includegraphics[scale=0.6]{images/Ganttchart.png}
     \caption{Gantt Chart}
     \label{fig:my_label}
 \end{figure}
@@ -536,14 +536,39 @@ The incremental model is one of the easiest software development life cycle mode
 
 \chapter{EPILOUGE}
 
-\section{Expected Output}
-The expected output of Nepali speech recognition entails the accurate transcription of spoken Nepali language into written text. When using an Automatic Speech Recognition (ASR) system designed for Nepali, the system is expected to capture the words, phrases, and sentences spoken in Nepali with a high degree of accuracy. This ensures that the transcribed text reflects the intended message accurately. After that we will use the text obtained in Nepali representation for our voice assistant .
+
 
 \section{Work Completed}
-We have implemented the conversion to MFCCs coefficient created by removing silent gaps and removing the unwanted devnagari transcription. Furthermore, we have written the code to implement the ASR model and Residual Block. The dataset we are using to train is taking excessive amount of time due to which we have just taken a sample of 44 audio files with epoch 10, the corresponding transcription to see the working of the model, plus taking 80\% of dataset for training and 20\% for test set.  
+We have implemented the conversion to MFCCs coefficient created by removing silent gaps and removing the unwanted devnagari transcription. Furthermore, we have written the code to implement the ASR model and Residual Block. The dataset we are using to train is taking excessive amount of time due to which we have just taken a sample of 44 audio files with epoch 100, the corresponding transcription to see the working of the model, plus taking 80\% of dataset for training and 20\% for test set.  
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/output2.png}
+    \caption{ Training on the model}
+    \label{fig:my_label}
+\end{figure}
+
+\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/testtrainerror.png}
+    \caption{Train and Test Loss}
+    \label{fig:my_label}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{images/output1.png}
+    \caption{Predicting Audio Output}
+    \label{fig:my_label}
+\end{figure}
+
+
+
+
 
 \section{Work Remaining}
-The Build 2 and Build 3 part are the remaining part, plus the training with much larger dataset to improve the accuracy must be done .
+The Build 2 and Build 3 part are the remaining part, plus the training with much larger dataset of 148k(audio,text) to improve the accuracy must be done with proper deployment of the model.
 
 
 

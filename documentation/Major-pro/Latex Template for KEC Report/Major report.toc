@@ -27,7 +27,6 @@
 \contentsline {section}{\numberline {3.2}\ac {UML} Diagrams}{17}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Software Development Model}{19}{section.3.3}%
 \contentsline {chapter}{\numberline {4}EPILOUGE}{20}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Expected Output}{20}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Work Completed}{20}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Work Remaining}{20}{section.4.3}%
-\contentsline {chapter}{References}{21}{section.4.3}%
+\contentsline {section}{\numberline {4.1}Work Completed}{20}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Work Remaining}{21}{section.4.2}%
+\contentsline {chapter}{References}{22}{section.4.2}%
