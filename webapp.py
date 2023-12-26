@@ -43,3 +43,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    # streamlit run "C:\PARA\--Project--\NEPALI-SPEECH-RECOGNITION-USING-BILSTM-AND-RESNET\webapp.py"

@@ -2,7 +2,7 @@
 ## Keywords
 ```Speech To Text, Nepali, CNN, ResNet, BiLSTM, CTC ```
 ## Intorduction
-This repo is a part of the research project for designing the automatic speech recogntion(ASR) model for Nepali language using ML techniques. 
+This repo is a part of the research project for designing the automatic speech recogntion(ASR) model for Nepali language using ML techniques. This repo is a further learnings and implementation to Manish Dhakal repository. All thanks to his efforts.
 
 ## Things to consider before
 - You are free to use this research as a reference and make modifications to continue your own research in Nepali ASR. 
@@ -21,6 +21,11 @@ This repo is a part of the research project for designing the automatic speech r
 ## Running the project
 0. Initialize the virtual environment by installing packages from `requirements.txt`.
 1. Run the training pipeline & evaluate authors model, which can be also be used to evaluate your own (audio,text) pairs.
+2. streamlit run "path/file.py" 
+```
+In our case # streamlit run "\webapp.py"
+``` 
+
 ```
 python trainer.py   # For running the training pipeline
 python eval.py      # For testing and evaluating the model already trained by the author
