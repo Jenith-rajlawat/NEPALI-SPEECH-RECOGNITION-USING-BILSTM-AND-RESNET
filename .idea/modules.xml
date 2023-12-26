@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ASR-Nepali-using-CNN-BiLSTM-ResNet-main.iml" filepath="$PROJECT_DIR$/.idea/ASR-Nepali-using-CNN-BiLSTM-ResNet-main.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/VoiceAssistant/.idea/VoiceAssistant.iml" filepath="$USER_HOME$/PycharmProjects/VoiceAssistant/.idea/VoiceAssistant.iml" />
       <module fileurl="file://$USER_HOME$/PycharmProjects/pythonProject/helloworld/.idea/helloworld.iml" filepath="$USER_HOME$/PycharmProjects/pythonProject/helloworld/.idea/helloworld.iml" />
     </modules>
   </component>
