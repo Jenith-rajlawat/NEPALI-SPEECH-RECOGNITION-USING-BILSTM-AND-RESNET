@@ -18,6 +18,10 @@ def transcription_prediction(wav_path):
 def main():
     st.title("Nepali Speech Recognition with BiLSTM and ResNet")
 
+    # Add a smaller image with a relative path
+    image_path = "dataset/image.jpg"
+    st.image(image_path, caption="Nepali Speech Recognition", use_column_width=True, width=150)
+
     # File upload
     audio_file = st.file_uploader("Upload Audio File (flac format)", type=["flac"])
 
