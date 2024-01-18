@@ -27,7 +27,7 @@ def main():
 
     if audio_file:
         # Temporarily save the uploaded file to a path (replace this with your logic)
-        temp_path = "C:\\PARA\\--Project--\\NEPALI-SPEECH-RECOGNITION-USING-BILSTM-AND-RESNET\\dataset\\audio\\file.flac"
+        temp_path = "dataset\\audio\\file.flac"
 
         with open(temp_path, "wb") as temp_file:
             temp_file.write(audio_file.read())
