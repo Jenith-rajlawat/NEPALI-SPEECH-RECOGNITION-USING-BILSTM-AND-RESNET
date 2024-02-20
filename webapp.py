@@ -14,6 +14,7 @@ def set_openai_api_key():
 def transcription_prediction(wav_path):
     """Predicts and returns the transcription for the given audio file."""
     model = load_model("model/trained_model.h5")
+    model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"])
     wav = load_wav(wav_path)
     sentences = predict_from_wavs(model, [wav], UNQ_CHARS)
     return sentences[0]
@@ -35,9 +36,13 @@ def perform_transcription(temp_path):
     try:
         result = transcription_prediction(temp_path)
         extract_text = result[0] if isinstance(result, list) and result else ""
+        extract_text += "?"
         st.write("User:", extract_text)
 
         # with GPT
+        myPrompt = "Your answer should be in nepali. Give me answer in brief.\n"
+        # myPrompt = ""
+        extract_text = myPrompt + "Text: ###\n" + extract_text + "\n###"
         response = openai.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[{"role": "user", "content": extract_text}],
