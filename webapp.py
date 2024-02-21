@@ -6,6 +6,8 @@ from scipy.io.wavfile import write
 from model.configs import UNQ_CHARS
 from model.utils import load_model, load_wav, predict_from_wavs
 
+st.config.set_option("server.maxUploadSize", 10)
+
 def set_openai_api_key():
     """Set OpenAI API key."""
     API_KEY = open("API_KEY", "r").read()

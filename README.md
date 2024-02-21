@@ -1,3 +1,4 @@
+
 # NEPALI-SPEECH-RECOGNITION-USING-BILSTM-AND-RESNET
 ## Keywords
 ```Speech To Text, Nepali, CNN, ResNet, BiLSTM, CTC ```
@@ -19,13 +20,14 @@ This repo is a part of the research project for designing the automatic speech r
 
 
 ## Running the project
-0. Initialize the virtual environment by installing packages from `requirements.txt`.
-1. Run the training pipeline & evaluate authors model, which can be also be used to evaluate your own (audio,text) pairs.
-2. streamlit run "path/file.py" 
+1. Initialize the virtual environment by installing packages from `requirements.txt`.
+2. Run the training pipeline & evaluate authors model, which can be also be used to evaluate your own (audio,text) pairs.
+3. Create *API_KEY* file and and paste your OpenAI API key there.
+4. streamlit run "path/file.py" 
 ```
-In our case # streamlit run "\webapp.py"
+python -m streamlit run webapp.py
 ``` 
-
+To train the model, the bellow code are used.
 ```
 python trainer.py   # For running the training pipeline
 python eval.py      # For testing and evaluating the model already trained by the author
