@@ -2,6 +2,8 @@ import streamlit as st
 import sounddevice as sd
 import openai
 from scipy.io.wavfile import write
+from gtts import gTTS
+import webbrowser
 
 from model.configs import UNQ_CHARS
 from model.utils import load_model, load_wav, predict_from_wavs
@@ -12,6 +14,25 @@ def set_openai_api_key():
     """Set OpenAI API key."""
     API_KEY = open("API_KEY", "r").read()
     openai.api_key = API_KEY
+
+from pydub import AudioSegment
+import io
+from pydub.playback import play
+
+def text_to_speech(text, lang='ne'):
+    """Convert text to speech and play on the website."""
+    try:
+        tts = gTTS(text=text, lang=lang)
+        audio_bytes = io.BytesIO()
+        tts.write_to_fp(audio_bytes)
+        audio_bytes.seek(0)
+        audio_segment = AudioSegment.from_file(audio_bytes)
+        play(audio_segment)
+    except Exception as e:
+        st.error("Error during text-to-speech conversion: " + str(e))
+
+
+
 
 def transcription_prediction(wav_path):
     """Predicts and returns the transcription for the given audio file."""
@@ -40,25 +61,42 @@ def perform_transcription(temp_path):
         extract_text = result[0] if isinstance(result, list) and result else ""
         extract_text += "?"
         st.write("User:", extract_text)
-
-        # with GPT
-        myPrompt = "Your answer should be in nepali. Give me answer in brief.\n"
-        # myPrompt = ""
-        extract_text = myPrompt + "Text: ###\n" + extract_text + "\n###"
-        response = openai.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": extract_text}],
-        )
-
-        st.write("AI Response:", response.choices[0].message.content.strip())
+        
+        # Check if the text starts with 'नम'
+        if extract_text.startswith('नम'):
+            if 'गाना' in extract_text:
+                text_to_speech("नमस्ते म YouTube खोल्दै छु। ", lang='ne')
+                # Open YouTube in the browser
+                webbrowser.open_new_tab("https://www.youtube.com/results?search_query=" + extract_text)
+                st.write("Opening YouTube...")
+            elif 'मौ' in extract_text:
+                text_to_speech("नमस्ते म मौसम बताउन जादै छ।", lang='ne')
+                # Open Google in the browser
+                webbrowser.open_new_tab("https://www.google.com/search?q=" + extract_text)
+                st.write("Opening Google...")
+        else:
+            # with GPT
+            myPrompt = "Your answer should be in Nepali. Give me the answer in paragraph form.\n"
+            extract_text = myPrompt + "Text: ###\n" + extract_text + "\n###"
+            response = openai.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": extract_text}],
+            )
+            # Display AI response
+            st.write("AI Response:", response.choices[0].message.content.strip())
+            # Read out the AI response
+            text_to_speech(response.choices[0].message.content.strip(), lang='ne')
 
     except openai.error.OpenAIError as e:
         st.error(f"OpenAI Error: {e}")
     except Exception as e:
-        st.error(f"Error during transcription: {e}")
+        st.error(f"Error during transcription: {e}") 
+
+
 
 def main():
     st.title("Nepali Speech Recognition with BiLSTM and ResNet")
+    # text_to_speech("नमस्ते मेरो नाम साथि |म तपाइलाई कसरी सहयोग गर्न सक्छु?", lang='ne')
 
     # Add option for audio source
     audio_source = st.radio("Choose audio source:", ["Upload File", "Record Audio"])
