@@ -18,13 +18,13 @@ import keyboard
 # Initialize pygame
 pygame.init()
 
-# Set maximum upload size
 st.config.set_option("server.maxUploadSize", 10)
 
 def set_openai_api_key():
     """Set OpenAI API key."""
     API_KEY = open("API_KEY", "r").read()
     openai.api_key = API_KEY
+
 
 def text_to_speech(text, lang='ne'):
     """Convert text to speech and play on the website."""
@@ -38,7 +38,7 @@ def text_to_speech(text, lang='ne'):
     except Exception as e:
         st.error("Error during text-to-speech conversion: " + str(e))
 
-# Function to play a random MP3 file from the specified directory
+
 def play_random_mp3(directory):
     # Get a list of all files in the directory
     files = os.listdir(directory)
@@ -62,6 +62,7 @@ def play_random_mp3(directory):
     else:
         print("No MP3 files found in the directory.")
 
+
 def transcription_prediction(wav_path):
     """Predicts and returns the transcription for the given audio file."""
     model = load_model("model/trained_model.h5")
@@ -69,6 +70,7 @@ def transcription_prediction(wav_path):
     wav = load_wav(wav_path)
     sentences = predict_from_wavs(model, [wav], UNQ_CHARS)
     return sentences[0]
+
 
 def record_audio():
     """Records audio from the microphone and saves it to a temporary WAV file."""
@@ -81,7 +83,6 @@ def record_audio():
     temp_path = "dataset\\audio\\recorded_audio.wav"
     write(temp_path, fs, recording)
     return temp_path
-
 
 
 def play_music(directory):
@@ -130,7 +131,7 @@ def perform_transcription(temp_path):
         # Check if the text contains 'नमस्ते' at the beginning and 'बजाउ' at the end
         if extract_text.startswith('नमस्ते') and extract_text.endswith('बजाउ'):
             # Specify the directory containing the MP3 files
-            directory = r"C:\Users\dell\Desktop\NEPALI-SPEECH-RECOGNITION-USING-BILSTM-AND-RESNET\dataset\music"
+            directory = r"dataset\music"
             st.write("Playing music. Press 's' to stop.")
             play_music(directory)
             return
@@ -156,9 +157,9 @@ def perform_transcription(temp_path):
                 webbrowser.open_new_tab(google_url)
                 st.write("Performing Google search for:", search_query)
                 return
-
+            
         # with GPT
-        myPrompt = "Your answer should be in Nepali. Give me the answer in paragraph form.\n"
+        myPrompt = "Your answer should be in Nepali. Give me the answer in brief.\n"
         extract_text = myPrompt + "Text: ###\n" + extract_text + "\n###"
         response = openai.chat.completions.create(
             model="gpt-3.5-turbo",
@@ -167,7 +168,7 @@ def perform_transcription(temp_path):
         # Display AI response
         st.write("AI Response:", response.choices[0].message.content.strip())
         # Read out the AI response
-        text_to_speech(response.choices[0].message.content.strip(), lang='ne')    
+        text_to_speech(response.choices[0].message.content.strip(), lang='ne')
 
     except openai.error.OpenAIError as e:
         st.error(f"OpenAI Error: {e}")
@@ -175,12 +176,9 @@ def perform_transcription(temp_path):
         st.error(f"Error during transcription: {e}") 
 
 
-
-  
-
-
 def main():
     st.title("Nepali Speech Recognition with BiLSTM and ResNet")
+    # text_to_speech("नमस्ते मेरो नाम साथि |म तपाइलाई कसरी सहयोग गर्न सक्छु?", lang='ne')
 
     # Add option for audio source
     audio_source = st.radio("Choose audio source:", ["Upload File", "Record Audio"])
