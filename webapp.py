@@ -12,7 +12,6 @@ from model.utils import load_model, load_wav, predict_from_wavs
 from pydub import AudioSegment
 import io
 from pydub.playback import play
-import re
 import keyboard
 
 # Initialize pygame
@@ -75,7 +74,7 @@ def transcription_prediction(wav_path):
 def record_audio():
     """Records audio from the microphone and saves it to a temporary WAV file."""
     fs = 16000
-    duration = 5
+    duration = 7
 
     recording = sd.rec(int(duration * fs), samplerate=fs, channels=1)
     sd.wait()
